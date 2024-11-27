@@ -24,6 +24,17 @@ def func2(n):
     """Функция 2"""
 
 
-def func3(n):
-    """Функция 3"""
+def update_document_format(file_path):
+    """Изменяет шрифт, размер и межстрочный интервал в документе"""
+    doc = Document(file_path)
+    
+    for para in doc.paragraphs:
+        for run in para.runs:
+            run.font.name = 'Times New Roman'  # Установка шрифта
+            run._element.rPr.rFonts.set(qn('w:eastAsia'), 'Times New Roman')  # Поддержка шрифта для всех языков
+            run.font.size = Pt(14)  # Установка размера шрифта
+        
+        # Установка межстрочного интервала 1.5
+        para.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE  # Межстрочный интервал 1.5
+        doc.save(file_path)  # Сохранение изменени
     pass
