@@ -1,11 +1,10 @@
-## стартовый модуль проекта
 
-# import <зависимость из задания>
+import os
+from functions import process_documents  # Импортируем функцию для обработки документов
 
 def main():
-    #TODO - сделай вызов функций из functions
     pass
 
-    #инициативный скрипт
-    if name  == "__main__":
-        main()
+# Запуск скрипта
+if __name__ == "__main__":
+    main()
