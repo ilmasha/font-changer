@@ -1,13 +1,23 @@
 ## стартовый модуль проекта
 
-# TODO - переименовать функции
-from functions import func1, func2
+from functions import download_documents, process_documents
+import os
 
 def main():
-    #TODO - сделай вызов функций из functions
-    pass
+   
+    folder_url = 'https://drive.google.com/drive/folders/your-folder-id?usp=sharing'
+    destination = 'documents'  
+    
+    
+    if not os.path.exists(destination):
+        print("Папка не существует, создаём...")
+        download_documents(folder_url, destination)  
+    else:
+        print(f"Папка '{destination}' уже существует. Пропускаем скачивание.")
+    
+   
+    process_documents(destination)  
+    print("Обработка завершена!")
 
-# инициазионный скрипт
 if __name__ == "__main__":
     main()
-     

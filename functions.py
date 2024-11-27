@@ -35,6 +35,14 @@ def download_documents(folder_url, destination):
         file_name = f"{file_id}.docx"
         file_path = os.path.join(destination, file_name)
         download_file_from_google_drive(file_id, file_path)
+        
+def process_documents(folder_path):
+    """Обрабатывает все документы в указанной папке"""
+    for filename in os.listdir(folder_path):
+        if filename.endswith(".docx"):
+            file_path = os.path.join(folder_path, filename)
+            update_document_format(file_path)
+            print(f"Обработан документ: {filename}")
 
 
 def update_document_format(file_path):
