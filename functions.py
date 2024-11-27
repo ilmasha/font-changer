@@ -5,7 +5,7 @@ from docx import Document
 def update_document_format(file_path):
     """Изменяет формат документа: шрифт, размер шрифта и межстрочный интервал."""
     try:
-        doc = Document(file_path)  # Открываем документ .docx
+        doc = Document(file_path)  # Открываем документ .docx  b
         print(f"Изменяем формат документа: {file_path}")
         
         # Изменение шрифта и размера шрифта
