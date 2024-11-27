@@ -53,20 +53,3 @@ def process_documents(destination):
             file_path = os.path.join(destination, filename)
             update_document_format(file_path)
 
-def update_document_format(file_path):
-    """Обновляет формат документа: шрифт, размер шрифта и межстрочный интервал"""
-    try:
-        doc = Document(file_path)
-        # Применяем изменения ко всем параграфам
-        for para in doc.paragraphs:
-            for run in para.runs:
-                run.font.name = 'Times New Roman'  # Меняем шрифт на Times New Roman
-                run.font.size = 14  # Устанавливаем размер шрифта 14
-
-            para.paragraph_format.line_spacing = 1.5  # Устанавливаем межстрочный интервал
-
-        # Сохраняем изменённый документ
-        doc.save(file_path)
-        print(f"Документ {file_path} обработан и сохранён.")
-    except Exception as e:
-        print(f"Ошибка при обработке документа {file_path}: {e}")
