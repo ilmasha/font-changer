@@ -30,5 +30,5 @@ def process_documents(folder_path):
 
 
 def func3(n):
-     ""Функция 3""
+    """Функция 3"""
     pass
