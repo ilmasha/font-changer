@@ -20,8 +20,21 @@ def download_file_from_google_drive(file_id, destination):
     print(f"Файл {destination} скачан!")
 
 
-def func2(n):
-    """Функция 2"""
+def download_documents(folder_url, destination):
+    """Скачивает все файлы из папки Google Drive"""
+    
+    file_ids = [
+        "1HcQjoxdNdJrQlVqWk5v3fnP5exO7d3oG",  
+        "1LQJvFzOS0tW7-TfAzw7L4VpS0EEXAMPLE"
+    ]
+    
+    if not os.path.exists(destination):
+        os.makedirs(destination)
+    
+    for file_id in file_ids:
+        file_name = f"{file_id}.docx"
+        file_path = os.path.join(destination, file_name)
+        download_file_from_google_drive(file_id, file_path)
 
 
 def update_document_format(file_path):
